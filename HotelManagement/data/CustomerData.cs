@@ -13,11 +13,6 @@ namespace HotelManagement.data
             this.repo = new FileReadWrite();
         }
 
-        public string ReadCustomerData()
-        {
-            return repo.ReadFromFile("Customer");
-        }
-
         public string FindCustomerByName(string name)
         {
             return repo.Search(name,"Customer");

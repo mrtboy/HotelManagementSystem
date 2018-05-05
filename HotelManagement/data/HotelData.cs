@@ -1,4 +1,5 @@
-﻿using HotelManagement.Models;
+﻿using System.Collections.Generic;
+using HotelManagement.Models;
 
 namespace HotelManagement.data
 {
@@ -14,6 +15,11 @@ namespace HotelManagement.data
         public string AddHotel(Hotel hotel)
         {
             return repo.WriteToFile("Hotel", hotel);
+        }
+
+        public List<string> GetAllHotels()
+        {
+            return repo.GetAll("Hotel");
         }
     }
 }

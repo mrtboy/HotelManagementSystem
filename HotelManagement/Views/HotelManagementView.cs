@@ -8,10 +8,12 @@ namespace HotelManagement.Views
     {
         ICustomerController customerController;
         IHotelController hotelController;
+        IRoomController roomController;
         public HotelManagementView()
         {
             customerController = new CustomerController();
             hotelController = new HotelController();
+            roomController = new RoomController();
         }
 
         public void MainMenu()
@@ -51,6 +53,8 @@ namespace HotelManagement.Views
             Console.WriteLine("2. Add Room");
             Console.WriteLine("3. Show All Rooms");
             Console.WriteLine("4. Show Available Rooms");
+            Console.WriteLine("5. Show All Hotells");
+            Console.WriteLine("6. Get Room Info");
             Console.WriteLine("9. Menu Menu");
             Console.WriteLine("0. Quiet");
             try
@@ -71,6 +75,12 @@ namespace HotelManagement.Views
                     case 4:
                         ShowAvailableRoomsMenu();
                         break;
+                    case 5:
+                        ShowAllHotelsMenu();
+                        break;
+                    case 6:
+                        GetRoomInfoMenu();
+                        break;
                     case 9:
                         MainMenu();
                         break;
@@ -87,19 +97,65 @@ namespace HotelManagement.Views
 
         }
 
+        private void GetRoomInfoMenu()
+        {
+            Console.WriteLine("=====================");
+            Console.WriteLine("==>Room Information<==");
+            Console.Write("Please Enter Room Number: ");
+            int roomNumber = int.Parse(Console.ReadLine());
+            Console.WriteLine(roomController.GetRoomInfo(roomNumber));
+            Console.WriteLine("=====================");
+            HotelManagementMenu();
+        }
+
+        private void ShowAllHotelsMenu()
+        {
+            Console.WriteLine("====================");
+            foreach (string hotel in hotelController.ShowAllHotels())
+            {
+                Console.WriteLine(hotel);
+            }
+            Console.WriteLine("====================");
+            HotelManagementMenu();
+        }
+
         private void ShowAvailableRoomsMenu()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("==>Show Available Room<==");
+            foreach(string room in roomController.ShowAvailableRooms())
+            {
+                Console.WriteLine(room);
+            }
+            Console.WriteLine("=========================");
+            HotelManagementMenu();
         }
 
         private void ShowAllRoomsMenu()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("========================");
+            foreach (string room in roomController.ShowAllRooms())
+            {
+                Console.WriteLine(room);
+            }
+            Console.WriteLine("========================");
+            HotelManagementMenu();
         }
 
         private void AddRoomMenu()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("========================");
+            Console.WriteLine("==>Add new Room<==");
+            Console.Write("Room Number: ");
+            int roomNumber = int.Parse(Console.ReadLine());
+            Console.Write("Enter Area Type: ");
+            string areaType = Console.ReadLine();
+            Console.Write("Price per night: ");
+            decimal price = decimal.Parse(Console.ReadLine());
+            Console.Write("Description: ");
+            string description = Console.ReadLine();
+            Room room = new Room(roomNumber, areaType, price, description); 
+            roomController.AddNewRoom(room);
+            HotelManagementMenu();
         }
 
         private void AddHotelMenu()
@@ -179,6 +235,7 @@ namespace HotelManagement.Views
                 int lengthOfStay = int.Parse(Console.ReadLine());
 
                 customerController.AddNewCustomer(new Customer(id, name, address, roomNumber, arrivalDate, lengthOfStay));
+                CustomerMunu();
             }
             catch(Exception e)
             {

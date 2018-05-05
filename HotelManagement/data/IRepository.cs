@@ -6,9 +6,10 @@ namespace HotelManagement.data
     public interface IRepository
     {
         string WriteToFile(string fileName, object text);
-        string ReadFromFile(string fileName);
         string Search(string text, string fileName);
-        List<String> GetAll(string fileName);
+        List<string> GetAll(string fileName);
+        List<string> GetAvailableRooms(string roomFile, string customerFile);
+        string GetRoomInfo(int roomNumber);
 
     }
 }

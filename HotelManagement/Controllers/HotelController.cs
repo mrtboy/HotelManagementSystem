@@ -1,4 +1,5 @@
-﻿using HotelManagement.data;
+﻿using System.Collections.Generic;
+using HotelManagement.data;
 using HotelManagement.Models;
 
 namespace HotelManagement.Controllers
@@ -15,6 +16,11 @@ namespace HotelManagement.Controllers
         public string AddNewHotel(Hotel hotel)
         {
             return data.AddHotel(hotel);
+        }
+
+        public List<string> ShowAllHotels()
+        {
+            return data.GetAllHotels();
         }
     }
 }
