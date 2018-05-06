@@ -34,17 +34,107 @@ namespace HotelManagementXML.data
 
         public List<string> GetAvailableRooms(string roomFile, string customerFile)
         {
-            throw new NotImplementedException();
+            List<string> rooms = new List<string>();
+            rooms = GetAll("Room");
+            List<string> customers = new List<string>();
+            customers = GetAll("Customer");
+            List<string> availableRooms = new List<string>();
+            string roomPath = String.Format(@".\{0}Seriliz.txt", roomFile);
+            string customerPath = String.Format(@".\{0}Seriliz.txt", customerFile);
+            try
+            {
+                foreach (string roomInList in rooms)
+                {
+                    string[] r = roomInList.Split(',');
+                    foreach (string customerInList in customers)
+                    {
+                        string[] c = customerInList.Split(',');
+                        if (r[0] != c[3])
+                        {
+                            availableRooms.Add(roomInList);
+                        }
+                    }
+                }
+
+                return availableRooms;
+            }
+            catch (IOException e)
+            {
+                availableRooms.Add(e.Message);
+                return availableRooms;
+            }
         }
 
         public string GetRoomInfo(int roomNumber)
         {
-            throw new NotImplementedException();
+            List<string> customers = new List<string>();
+            customers = GetAll("Customer");
+            List<string> rooms = new List<string>();
+            rooms = GetAll("Room");
+            List<string> availableRooms = new List<string>();
+            string roomPath = String.Format(@".\{0}Seriliz.txt", "Room");
+            string customerPath = String.Format(@".\{0}Seriliz.txt", "Customer");
+            string roomInfo = "";
+            string customerInfo = "";
+            string result = "";
+            try
+            {
+                //Check room Number in Room file and Room Number in Customer File
+                foreach (string room in rooms)
+                {
+                    string[] r = room.Split(',');
+                    if (r[0] == roomNumber.ToString())
+                    {
+                        roomInfo = room.ToString();
+                    }
+                }
+
+                //Check if Rooms has Guess
+                foreach (string customer in customers)
+                {
+                    string[] c = customer.Split(',');
+                    if (c[2] == roomNumber.ToString())
+                    {
+                        customerInfo = customer.ToString();
+                    }
+                    else
+                    {
+                        customerInfo = "Room is Available";
+                    }
+                }
+                result = roomInfo + " ==> Availability status: " + customerInfo;
+
+                return result;
+            }
+            catch (IOException e)
+            {
+                rooms.Add(e.Message);
+                return "";
+            }
         }
 
         public string Search(string text, string fileName)
         {
-            throw new NotImplementedException();
+
+            IEnumerable<string> lines = new List<string>();
+            lines = GetAll(fileName);
+            string path = String.Format(@".\{0}Seriliz.txt", fileName);
+            try
+            {
+                foreach (string line in lines)
+                {
+                    if (line.Contains(text))
+                    {
+                        return line;
+                    }
+
+                }
+                return "Not Exist";
+            }
+            catch (IOException e)
+            {
+                return e.Message;
+            }
         }
 
         public string WriteToFile(string fileName, object text)
@@ -71,7 +161,6 @@ namespace HotelManagementXML.data
         private List<string> ReadXML<T>(string FileName)
         {
             List<string> lists = new List<string>();
-            Console.WriteLine("Reading with XmlReader");
 
             // Create an instance of the XmlSerializer specifying type and namespace.
             XmlSerializer serializer = new XmlSerializer(typeof(T));

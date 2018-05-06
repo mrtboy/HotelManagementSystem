@@ -116,7 +116,7 @@ namespace HotelManagement2.data
                     foreach (string customer in customers)
                     {
                         string[] c = customer.Split(',');
-                        if (r[0] == c[3])
+                        if (r[0] != c[3])
                         {
                             availableRooms.Add(room);
                         }
