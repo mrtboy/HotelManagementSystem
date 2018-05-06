@@ -58,6 +58,7 @@
     <Compile Include="data\IRoomData.cs" />
     <Compile Include="data\RoomData.cs" />
     <Compile Include="data\SerializationReadWrite.cs" />
+    <Compile Include="data\XmlReadWrite.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\Room.cs" />

@@ -10,7 +10,7 @@ namespace HotelManagementXML.data
 
         public CustomerData()
         {
-            this.repo = new SerializationReadWrite();
+            this.repo = new XmlReadWrite();
         }
 
         public string FindCustomerByName(string name)

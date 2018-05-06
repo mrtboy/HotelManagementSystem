@@ -1,13 +1,18 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace HotelManagementXML.Models
 {
-    [Serializable]
+    [XmlRoot("Hotel")]
     public class Hotel
     {
+        [XmlElement("name")]
         public string Name { get; set; }
+        [XmlElement("constructionDate")]
         public DateTime ConstructionDate { get; set; }
+        [XmlElement("address")]
         public string Address { get; set; }
+        [XmlElement("star")]
         public int Star { get; set; }
 
         public Hotel()

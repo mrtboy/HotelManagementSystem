@@ -9,7 +9,7 @@ namespace HotelManagementXML.data
 
         public RoomData()
         {
-            this.repo = new SerializationReadWrite();
+            this.repo = new XmlReadWrite();
         }
 
         public string AddNewRoom(Room room)

@@ -1,13 +1,18 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace HotelManagementXML.Models
 {
-    [Serializable]
+    [XmlRoot("Room")]
     public class Room
     {
+        [XmlElement("roomNumber")]
         public int RoomNumber { get; set; }
+        [XmlElement("areaType")]
         public  string AreaType { get; set; }
+        [XmlElement("price")]
         public decimal Price { get; set; }
+        [XmlElement("description")]
         public string Description { get; set; }
 
 

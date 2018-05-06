@@ -9,7 +9,7 @@ namespace HotelManagementXML.data
 
         public HotelData()
         {
-            this.repo = new SerializationReadWrite();
+            this.repo = new XmlReadWrite();
         }
 
         public string AddHotel(Hotel hotel)
