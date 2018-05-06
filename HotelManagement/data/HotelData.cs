@@ -9,7 +9,7 @@ namespace HotelManagement.data
 
         public HotelData()
         {
-            this.repo = new FileReadWrite();
+            this.repo = new BinaryReadWrite();
         }
 
         public string AddHotel(Hotel hotel)

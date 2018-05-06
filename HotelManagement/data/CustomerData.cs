@@ -10,7 +10,7 @@ namespace HotelManagement.data
 
         public CustomerData()
         {
-            this.repo = new FileReadWrite();
+            this.repo = new BinaryReadWrite();
         }
 
         public string FindCustomerByName(string name)

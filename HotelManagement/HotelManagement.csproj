@@ -49,6 +49,7 @@
     <Compile Include="Controllers\IHotelController.cs" />
     <Compile Include="Controllers\IRoomController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="data\BinaryReadWrite.cs" />
     <Compile Include="data\CustomerData.cs" />
     <Compile Include="data\FileReadWrite.cs" />
     <Compile Include="data\HotelData.cs" />
