@@ -1,19 +1,19 @@
-﻿using HotelManagement2.Controllers;
-using HotelManagement2.Models;
+﻿using HotelManagementXML.Controllers;
+using HotelManagementXML.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HotelManagement2.Views;
+using HotelManagementXML.Views;
 
-namespace HotelManagement2
+namespace HotelManagementXML
 {
     class Program
     {
         static void Main(string[] args)
         {
-            HotelManagement2View customerView = new HotelManagement2View();
+            HotelManagementXMLView customerView = new HotelManagementXMLView();
             customerView.MainMenu();
         }
 

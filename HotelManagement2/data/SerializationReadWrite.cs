@@ -1,4 +1,4 @@
-﻿using HotelManagement.Models;
+﻿using HotelManagement2.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelManagement.data
+namespace HotelManagement2.data
 {
     public class SerializationReadWrite : IRepository
     {

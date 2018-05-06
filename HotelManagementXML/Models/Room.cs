@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HotelManagement2.Models
+namespace HotelManagementXML.Models
 {
     [Serializable]
     public class Room

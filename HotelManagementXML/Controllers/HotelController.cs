@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using HotelManagement2.data;
-using HotelManagement2.Models;
+using HotelManagementXML.data;
+using HotelManagementXML.Models;
 
-namespace HotelManagement2.Controllers
+namespace HotelManagementXML.Controllers
 {
     public class HotelController : IHotelController
     {

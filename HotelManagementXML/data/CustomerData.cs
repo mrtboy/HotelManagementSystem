@@ -1,8 +1,8 @@
-﻿using HotelManagement2.Models;
+﻿using HotelManagementXML.Models;
 using System;
 using System.Collections.Generic;
 
-namespace HotelManagement2.data
+namespace HotelManagementXML.data
 {
     public class CustomerData : ICustomerData
     {

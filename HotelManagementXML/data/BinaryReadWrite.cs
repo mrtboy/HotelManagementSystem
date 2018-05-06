@@ -1,4 +1,4 @@
-﻿using HotelManagement2.Models;
+﻿using HotelManagementXML.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelManagement2.data
+namespace HotelManagementXML.data
 {
     public class BinaryReadWrite : IRepository
     {

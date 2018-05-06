@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HotelManagement2.data
+namespace HotelManagementXML.data
 {
     public interface IRepository
     {

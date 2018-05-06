@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using HotelManagement2.Models;
+using HotelManagementXML.Models;
 
-namespace HotelManagement2.data
+namespace HotelManagementXML.data
 {
     interface IRoomData
     {

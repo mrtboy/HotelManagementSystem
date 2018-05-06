@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace HotelManagement2.data
+namespace HotelManagementXML.data
 {
     public class FileReadWrite : IRepository
     {

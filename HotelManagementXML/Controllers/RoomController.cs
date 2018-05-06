@@ -1,9 +1,9 @@
-﻿using HotelManagement2.data;
-using HotelManagement2.Models;
+﻿using HotelManagementXML.data;
+using HotelManagementXML.Models;
 using System;
 using System.Collections.Generic;
 
-namespace HotelManagement2.Controllers
+namespace HotelManagementXML.Controllers
 {
     public class RoomController : IRoomController
     {

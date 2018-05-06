@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagement", "HotelMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagement2", "HotelManagement2\HotelManagement2.csproj", "{9A927BF7-8A13-4425-B376-D4E8F45EEBF0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagementXML", "HotelManagementXML\HotelManagementXML.csproj", "{055C36B2-8D64-4AED-93D6-16CE337AC396}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9A927BF7-8A13-4425-B376-D4E8F45EEBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A927BF7-8A13-4425-B376-D4E8F45EEBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A927BF7-8A13-4425-B376-D4E8F45EEBF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{055C36B2-8D64-4AED-93D6-16CE337AC396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{055C36B2-8D64-4AED-93D6-16CE337AC396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{055C36B2-8D64-4AED-93D6-16CE337AC396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{055C36B2-8D64-4AED-93D6-16CE337AC396}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

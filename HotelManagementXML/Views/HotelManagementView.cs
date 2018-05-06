@@ -1,15 +1,15 @@
-﻿using HotelManagement2.Controllers;
-using HotelManagement2.Models;
+﻿using HotelManagementXML.Controllers;
+using HotelManagementXML.Models;
 using System;
 
-namespace HotelManagement2.Views
+namespace HotelManagementXML.Views
 {
-    public class HotelManagement2View
+    public class HotelManagementXMLView
     {
         ICustomerController customerController;
         IHotelController hotelController;
         IRoomController roomController;
-        public HotelManagement2View()
+        public HotelManagementXMLView()
         {
             customerController = new CustomerController();
             hotelController = new HotelController();
@@ -30,7 +30,7 @@ namespace HotelManagement2.Views
                 switch (input)
                 {
                     case 1:
-                        HotelManagement2Menu();
+                        HotelManagementXMLMenu();
                         break;
                     case 2:
                         CustomerMunu();
@@ -46,7 +46,7 @@ namespace HotelManagement2.Views
             }
         }
 
-        private void HotelManagement2Menu()
+        private void HotelManagementXMLMenu()
         {
             Console.WriteLine("==>Hotel Management<==");
             Console.WriteLine("1. Add Hotel");
@@ -105,7 +105,7 @@ namespace HotelManagement2.Views
             int roomNumber = int.Parse(Console.ReadLine());
             Console.WriteLine(roomController.GetRoomInfo(roomNumber));
             Console.WriteLine("=====================");
-            HotelManagement2Menu();
+            HotelManagementXMLMenu();
         }
 
         private void ShowAllHotelsMenu()
@@ -116,7 +116,7 @@ namespace HotelManagement2.Views
                 Console.WriteLine(hotel);
             }
             Console.WriteLine("====================");
-            HotelManagement2Menu();
+            HotelManagementXMLMenu();
         }
 
         private void ShowAvailableRoomsMenu()
@@ -127,7 +127,7 @@ namespace HotelManagement2.Views
                 Console.WriteLine(room);
             }
             Console.WriteLine("=========================");
-            HotelManagement2Menu();
+            HotelManagementXMLMenu();
         }
 
         private void ShowAllRoomsMenu()
@@ -138,7 +138,7 @@ namespace HotelManagement2.Views
                 Console.WriteLine(room);
             }
             Console.WriteLine("========================");
-            HotelManagement2Menu();
+            HotelManagementXMLMenu();
         }
 
         private void AddRoomMenu()
@@ -155,7 +155,7 @@ namespace HotelManagement2.Views
             string description = Console.ReadLine();
             Room room = new Room(roomNumber, areaType, price, description); 
             roomController.AddNewRoom(room);
-            HotelManagement2Menu();
+            HotelManagementXMLMenu();
         }
 
         private void AddHotelMenu()
@@ -171,7 +171,7 @@ namespace HotelManagement2.Views
             int star = int.Parse(Console.ReadLine());
             Hotel hotel = new Hotel(name,date,address,star);
             Console.WriteLine(hotelController.AddNewHotel(hotel));
-            HotelManagement2Menu();
+            HotelManagementXMLMenu();
         }
 
         private void CustomerMunu()
