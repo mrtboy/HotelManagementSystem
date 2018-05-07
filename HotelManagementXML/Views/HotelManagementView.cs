@@ -234,7 +234,15 @@ namespace HotelManagementXML.Views
                 Console.Write("Length of stay: ");
                 int lengthOfStay = int.Parse(Console.ReadLine());
 
-                customerController.AddNewCustomer(new Customer(id, name, address, roomNumber, arrivalDate, lengthOfStay));
+                bool result = customerController.AddNewCustomer(new Customer(id, name, address, roomNumber, arrivalDate, lengthOfStay));
+                if (result)
+                {
+                    Console.WriteLine("Seccess");
+                }
+                else
+                {
+                    Console.WriteLine("Failed to add");
+                }
                 CustomerMunu();
             }
             catch(Exception e)

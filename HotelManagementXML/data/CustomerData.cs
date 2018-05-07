@@ -24,7 +24,7 @@ namespace HotelManagementXML.data
             {
                 repo.WriteToFile("Customer", customer);
                 return true;
-            }catch(Exception)
+            }catch(Exception e)
             {
                 return false;
             }

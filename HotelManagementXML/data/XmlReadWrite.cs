@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using System.Xml.XPath;
 using HotelManagementXML.Models;
 
 namespace HotelManagementXML.data
@@ -16,19 +17,29 @@ namespace HotelManagementXML.data
         public List<string> GetAll(string fileName)
         {
             string path = String.Format(@".\{0}Xml.xml", fileName);
-    
-            if(fileName == "Customer")
+            List<string> lists = new List<string>();
+            if (fileName == "Customer")
             {
-                return ReadXML<Customer>(path);
+                List<Customer> customers= ReadXML<List<Customer>>(path);
+                foreach (Customer c in customers)
+                    lists.Add(c.ToString());
+                return lists;
             }
-            else if(fileName == "Hotel")
+            else if (fileName == "Hotel")
             {
-                return ReadXML<Hotel>(path);
+                List<Hotel> hotels = ReadXML<List<Hotel>>(path);
+                foreach (Hotel h in hotels)
+                    lists.Add(h.ToString());
+                return lists;
             }
             else
             {
-                return ReadXML<Room>(path);
+                List<Room> rooms = ReadXML<List<Room>>(path);
+                foreach (Room r in rooms)
+                    lists.Add(r.ToString());
+                return lists;
             }
+            return null;
 
         }
 
@@ -140,7 +151,40 @@ namespace HotelManagementXML.data
         public string WriteToFile(string fileName, object text)
         {
             string path = String.Format(@".\{0}Xml.xml", fileName);
-            return WriteXML(text, path);
+            
+            if (fileName == "Customer")
+            {
+                List<Customer> customers = new List<Customer>();
+                if (File.Exists(path))
+                {
+                    customers = ReadXML<List<Customer>>(path);
+                }
+               
+                customers.Add((Customer)text);
+                return WriteXML<List<Customer>>(customers, path);
+                
+            } else if (fileName == "Room")
+            {
+                List<Room> rooms = new List<Room>();
+                if (File.Exists(path))
+                {
+                    rooms = ReadXML<List<Room>>(fileName);
+                }
+                rooms.Add((Room)text);
+                return WriteXML<List<Room>>(rooms, path);
+            }
+            else
+            {
+                List<Hotel> hotels = new List<Hotel>();
+                if (File.Exists(path))
+                {
+                    hotels = ReadXML<List<Hotel>>(fileName);
+                }
+                hotels.Add((Hotel)text);
+                return WriteXML<List<Hotel>>(hotels, path);
+            }
+
+            
         }
 
         private string WriteXML<T>(T type, string filePathName)
@@ -153,30 +197,23 @@ namespace HotelManagementXML.data
                 OmitXmlDeclaration = true,
                 ConformanceLevel = ConformanceLevel.Auto,
                 Indent = true
+
             });
             serializer.Serialize(xmlWriter, type);
             xmlWriter.Close();
-            return "File length: " + new FileInfo(filePathName).Length;
+            return "File length: " + new
+           FileInfo(filePathName).Length;
         }
-        private List<string> ReadXML<T>(string FileName)
+        private T ReadXML<T>(string FileName)
         {
             List<string> lists = new List<string>();
-
-            // Create an instance of the XmlSerializer specifying type and namespace.
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
-
-            // A FileStream is needed to read the XML document.
-            FileStream fs = new FileStream(FileName, FileMode.Open);
-            XmlReader reader = XmlReader.Create(fs);
-
-            // Declare an object variable of the type to be deserialized.
-            T i;
-
-            // Use the Deserialize method to restore the object's state.
-            i = (T)serializer.Deserialize(reader);
-            fs.Close();
-            lists.Add(i.ToString());
-            return lists;
+       
+            using (var stream = System.IO.File.OpenRead(FileName))
+            {
+                var serializer = new XmlSerializer(typeof(T));
+                return (T)serializer.Deserialize(stream);
+            }
+               
         }
     }
 }
